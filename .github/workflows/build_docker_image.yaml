@@ -35,6 +35,6 @@ jobs:
           ECR_REPOSITORY: mlops
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/q4i6q5u4
-          docker build --build-arg AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} -t public.ecr.aws/q4i6q5u4/mlops:v4t .
-          docker push public.ecr.aws/q4i6q5u4/mlops:v4t
+          aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 636521895949.dkr.ecr.eu-central-1.amazonaws.com
+          docker build --build-arg AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} -t 636521895949.dkr.ecr.eu-central-1.amazonaws.com/mlops/mlops:v4.
+          docker push 636521895949.dkr.ecr.eu-central-1.amazonaws.com/mlops:v4
